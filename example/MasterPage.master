@@ -1,0 +1,191 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register src="HeaderScripts.ascx" tagname="HeaderScripts" tagprefix="uc2" %>
+
+<%@ Register src="SocialLinks.ascx" tagname="SocialLinks" tagprefix="uc1" %>
+
+<%@ Register src="EmailListUserAdd.ascx" tagname="EmailListUserAdd" tagprefix="uc3" %>
+
+
+
+<%@ Register Src="Contact.ascx" TagPrefix="uc1" TagName="Contact" %>
+<%@ Register Src="~/example/EmailListUserAdd.ascx" TagPrefix="uc1" TagName="EmailListUserAdd" %>
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+<uc2:HeaderScripts ID="HeaderScripts1" runat="server" />
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+     
+
+        
+    <center>
+    
+    <div class="top_bg">
+    								<div class="hide_menu">
+                                           <img src="img/mobile_menu.png" height="23" width="26" />
+                                           <span> القائمة الرئيسية</span>
+                                    </div>
+    
+    <div id="Div1">
+    <div class="all_page" >
+   			 <header>
+              	<div class="top_men">
+                   	    <a   class='familyname' style='background-image: url("../images/site/<%=ImageLogo.ToString() %>");'> </a>
+                            <div class="top_menu">
+                            
+                           			 <div id='cssmenu'>
+                                        <ul>
+                                           <li class='active'><a href='~/example' runat="server"><span>الرئيسية</span></a></li>
+
+                                                <asp:Repeater ID="RptMenu" runat="server">
+<ItemTemplate>
+                                           <li class='has-sub'><a href='<%#Eval("PageLink") %>?Cat=<%#Eval("CatID") %>'><span><%#Eval("Title") %></span></a> </li>
+                                        
+    </ItemTemplate>
+                                                    </asp:Repeater>
+                                            
+
+
+                                        </ul>
+                                        <a class="main_link5"><span>إخفاء القائمة</span></a>
+                                     </div>                              
+							</div>
+                     </div>
+                     
+                <div class="top_slider" runat="server" id="SliderBox">
+                	<div class="box2">
+                                        	<div id="showcase" class="pdx_slider_up">
+                                              
+                                                   <asp:Repeater ID="Repeater2" runat="server">
+<ItemTemplate>
+
+                                                <div class="showcase-slide">
+                                                    <div class="showcase-content">
+                                                        <div class="pdx_slider">
+                                                               
+                                                            <img src="../images/Album/<%#Eval("FileName") %>" width="929" height="411" alt=""  />
+                                                        </div>
+                                                    </div>
+                                                </div>
+    </ItemTemplate>
+    </asp:Repeater>
+                                            
+
+                                                 <div class="showcase-slide" id="slide2" runat="server" >
+                                                    <div class="showcase-content">
+                                                        <div class="pdx_slider">
+                                                               
+                                                            <img src="../images/Album/test.png" width="929" height="411" alt=""  />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                             
+                                            
+                                               
+                                    </div>
+                                    	</div>
+                </div>
+			 </header>
+    
+    	
+                    
+
+
+        	 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+         </asp:ContentPlaceHolder>
+
+
+                    </div>
+                    <footer>
+                    	<div class="footer_cont" id="Ccontact" runat="server">
+                        	<div class="top_cont">
+                            	<div class="about">
+                                	<a class="titles2" href="#">تواصل معنا</a>
+                               	</div>
+                                    <div class="right">
+                                    	<div class="map">
+                                        	<div class="titles3">لايجادنا والتواصل معنا</div>
+                                            <div class="map_cont">
+
+                                                   <asp:Repeater ID="RpMap" runat="server">
+<ItemTemplate>
+ <%#Eval("Details").ToString()%>
+</ItemTemplate>
+</asp:Repeater>
+
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="contact">
+
+                                                                      
+
+
+                                        	<span class="company_titles"><%=SiteTitle %></span>
+                                            <div class="information"><span class="tits5">الهاتف المحمول : </span> <%=MobileNo %> </div>
+                                            <div class="information"><span class="tits5">البريد الإلكتروني: </span> <%=Email %></div>
+                                   
+                                        </div>
+                                        
+                                        <div class="socialN">
+                                            <div runat="server" id="EmailListBox"> 
+                                        	<uc1:EmailListUserAdd runat="server" id="EmailListUserAdd" />
+                                                </div>
+                                 
+
+ <uc1:SocialLinks ID="SocialLinks1" runat="server" />
+
+
+          
+                                            
+                                            
+                                        </div>
+                                        
+                                        
+                                    </div>
+
+
+                                   <uc1:Contact runat="server" id="Contact" />
+
+
+
+
+                            </div>
+                            
+                            <div class="bottom_cont">
+                            	<span>جميع الحقوق محفوظة  2015 - 2016</span>
+                                
+                            </div>
+                        
+                        </div>
+                   </footer>
+                    
+    
+    
+    </div>
+    
+    
+    </div>
+    
+    </center>
+    
+    
+    
+	
+
+
+    </form>
+</body>
+</html>
+
+
+

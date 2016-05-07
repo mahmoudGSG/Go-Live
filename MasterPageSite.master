@@ -1,0 +1,160 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageSite.master.cs"
+    Inherits="MasterPageSite" %>
+
+<%@ Register Src="HeaderScripts.ascx" TagName="HeaderScripts" TagPrefix="uc2" %>
+<%@ Register Src="SocialLinks.ascx" TagName="SocialLinks" TagPrefix="uc1" %>
+<%@ Register Src="~/Contact.ascx" TagPrefix="uc1" TagName="Contact" %>
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+
+    <title></title>
+
+    <uc2:HeaderScripts ID="HeaderScripts1" runat="server" />
+
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+        <center>
+    
+    <div class="top_bg">
+    								<div class="hide_menu">
+                                           <img src="img/mobile_menu.png" height="23" width="26" />
+                                           <span> القائمة الرئيسية</span>
+                                    </div>
+    
+    <div id="Div1">
+    <div class="all_page" >
+
+
+   			 <header>
+              	<div class="top_men">
+                   	    
+                        	<a href="#" class="familyname"> </a>
+                            <div class="top_menu">
+                            
+                           			 <div id='cssmenu'>
+                                        <ul>
+                                           <li class='active'><a href='Default.aspx'><span>الرئيسية</span></a></li>
+                                           <li class='has-sub'><a href='#About'><span>عن الشركة</span></a></li>
+                                           <li><a href='#Serv'><span> خدمات الشركة </span></a></li>
+                                           <li><a href='#Wwork'><span>بناءالمواقع</span></a></li>
+                                           <li><a href='#Ccontact'><span>  اتصل بنا</span></a></li>
+                                        </ul>
+                                        <a class="main_link5"><span>إخفاء القائمة</span></a>
+                                     </div>                              
+							</div>
+                     </div>
+                     
+                <div class="top_slider">
+                	<div class="box2">
+                                        	<div id="showcase" class="pdx_slider_up">
+                                              
+                                                   <asp:Repeater ID="Repeater2" runat="server">
+<ItemTemplate>
+
+                                                <div class="showcase-slide">
+                                                    <div class="showcase-content">
+                                                        <div class="pdx_slider">
+                                                               
+                                                            <img src="images/Album/<%#Eval("FileName") %>" width="929" height="411" alt=""  />
+                                                        </div>
+                                                    </div>
+                                                </div>
+    </ItemTemplate>
+    </asp:Repeater>
+                                            
+                                             
+                                            
+                                               
+                                    </div>
+                                    	</div>
+                </div>
+			 </header>
+    
+  
+        	 <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+         </asp:ContentPlaceHolder>
+
+
+                    </div>
+                    <footer>
+                    	<div class="footer_cont" id="Ccontact">
+                        	<div class="top_cont">
+                            	<div class="about">
+                                	<a class="titles2" href="#">اتصل بنا</a>
+                                    <span>للحصول على الموقع الخاص بك، لا تتردد بالتواصل معنا </span>
+                               	</div>
+                                    <div class="right">
+                                    	<div class="map">
+                                        	<div class="titles3">لايجادنا والتواصل معنا</div>
+                                            <div class="map_cont">
+
+                                                   <asp:Repeater ID="RpMap" runat="server">
+<ItemTemplate>
+ <%#Eval("MapDetails").ToString()%>
+</ItemTemplate>
+</asp:Repeater>
+
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="contact">
+
+                                                                      <asp:Repeater ID="Repeater1" runat="server">
+<ItemTemplate>
+
+
+                                        	<span class="company_titles">Go Live Site </span>
+                                            <div class="information"><span class="tits5">الهاتف المحمول : </span>  <%#Eval("Mobile").ToString()%></div>
+                                            <div class="information"><span class="tits5">البريد الإلكتروني: </span> <%#Eval("EMail").ToString()%></div>
+                                       </ItemTemplate>
+</asp:Repeater>
+                                        </div>
+                                        
+                                        <div class="socialN">
+                                        	<span class="company_titles2">اشترك معنا ليصلك كل جديد</span>
+                                            	<div class="emails">
+                                                	<input type="text" class="txt3" placeholder="info@golive.com" />
+                                                    <input type="submit" class="btn" />
+                                                </div>
+
+                                             <uc1:SocialLinks ID="SocialLinks1" runat="server" />
+                        
+                                        </div>
+                                        
+                                        
+                                    </div>
+
+                                      <uc1:Contact runat="server" id="Contact" />
+
+                            </div>
+                            
+                            <div class="bottom_cont">
+
+                            	<span>جميع الحقوق محفوظة  2016 - 2017</span>
+                                
+                            </div>
+                        
+                        </div>
+                   </footer>
+                    
+    
+    
+    </div>
+    
+    
+    </div>
+    
+    </center>
+
+    </form>
+</body>
+</html>
+
